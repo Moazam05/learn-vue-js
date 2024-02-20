@@ -2,6 +2,7 @@
 import Contact from "./components/Contact.vue";
 import Home from "./components/Home.vue";
 import About from "./components/About.vue";
+import Dashboard from "./components/Dashboard.vue";
 </script>
 
 <template>
@@ -12,4 +13,5 @@ import About from "./components/About.vue";
   <br />
   <About />
   <Contact />
+  <Dashboard />
 </template>
