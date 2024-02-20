@@ -22,6 +22,57 @@
     <div :style="{ margin: '20px 0' }">
       <button @click="submitHandle">Login</button>
     </div>
+
+    <!-- checkbox -->
+    <div>
+      <input
+        type="checkbox"
+        id="vehicle1"
+        name="vehicle1"
+        v-model="vehicles.bike"
+        value="Bike"
+      />
+      <label for="vehicle1"> I have a bike</label><br />
+
+      <input
+        type="checkbox"
+        id="vehicle2"
+        name="vehicle2"
+        v-model="vehicles.car"
+        value="Car"
+      />
+      <label for="vehicle2"> I have a car</label><br />
+
+      <input
+        type="checkbox"
+        id="vehicle3"
+        name="vehicle3"
+        v-model="vehicles.boat"
+        value="Boat"
+      />
+      <label for="vehicle3"> I have a boat</label><br />
+    </div>
+
+    <div>
+      <label for="male">Male</label>
+
+      <input
+        type="radio"
+        name="gender"
+        value="male"
+        v-model="formValues.gender"
+        id="male"
+      />
+      <label for="female">Female</label>
+
+      <input
+        type="radio"
+        name="gender"
+        v-model="formValues.gender"
+        value="female"
+        id="male"
+      />
+    </div>
   </div>
 </template>
 
@@ -31,6 +82,13 @@ import { reactive } from "vue";
 const formValues = reactive({
   username: "",
   password: "",
+  gender: null,
+});
+
+const vehicles = reactive({
+  bike: false,
+  car: false,
+  boat: false,
 });
 
 const submitHandle = () => {
@@ -38,9 +96,10 @@ const submitHandle = () => {
   const payload = {
     username: formValues.username,
     password: formValues.password,
+    gender: formValues.gender,
   };
 
-  console.log("Payload", payload);
+  console.log("Payload", payload, vehicles);
 };
 </script>
 
