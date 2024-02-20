@@ -14,17 +14,37 @@
       </ul>
     </div>
   </div>
+
+  <div>
+    <Child
+      name="Salman"
+      :userDetails="userDetails"
+      :currentDate="currentDate"
+    />
+  </div>
 </template>
 
 <script setup>
+import Child from "./Child.vue";
+
+const userDetails = {
+  name: "Salman",
+  age: 25,
+  email: "salmanmoazam08@gmail.com",
+};
+
 const technologies = ["Vue", "React", "Angular", "Svelte", "Ember"];
+
+const currentDate = () => {
+  const date = new Date();
+  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+};
 
 const users = [
   { id: 1, name: "Salman" },
   { id: 2, name: "Ali" },
   { id: 3, name: "Ahmed" },
   { id: 4, name: "Kashif" },
-  { id: 5, name: "Nasir" },
 ];
 </script>
 
