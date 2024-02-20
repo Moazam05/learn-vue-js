@@ -73,6 +73,13 @@
         id="male"
       />
     </div>
+
+    <div>
+      <button @click="showAddress">
+        {{ formValues?.showAddress ? "Hide Address" : "Show Address" }}
+      </button>
+      <div v-if="formValues.showAddress">Address Show</div>
+    </div>
   </div>
 </template>
 
@@ -83,6 +90,7 @@ const formValues = reactive({
   username: "",
   password: "",
   gender: null,
+  showAddress: false,
 });
 
 const vehicles = reactive({
@@ -90,6 +98,10 @@ const vehicles = reactive({
   car: false,
   boat: false,
 });
+
+const showAddress = () => {
+  formValues.showAddress = !formValues.showAddress;
+};
 
 const submitHandle = () => {
   console.log("Form submitted");
