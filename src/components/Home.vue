@@ -13,26 +13,54 @@
   <div>Name: {{ getName("Salman") }}</div>
   <div>Name: {{ getName("Kashif") }}</div>
   <!-- <div>HotMail: {{ hotMail }}</div> -->
+  <button @click="clickMe">Click ME</button>
+  <div>Current Date: {{ getDate() }}</div>
+  <button @click="handleIncrement">++</button>
+  <div>Count: {{ count }}</div>
+  <button @click="handleDecrement" :disabled="count === 0">--</button>
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "Home",
 
   setup() {
     const email = "salmanmoazam08@gmail.com";
     const phone = "1234567890";
+    const count = ref(0);
+
     const getName = (name) => {
       return name;
     };
 
-    return { email, phone, getName };
-  },
+    const clickMe = () => {
+      alert("Hello World");
+    };
 
-  // data() {
-  //   return {
-  //     hotMail: "salman@hotmail.com",
-  //   };
-  // },
+    const handleIncrement = () => {
+      count.value++;
+    };
+
+    const handleDecrement = () => {
+      count.value--;
+    };
+
+    const getDate = () => {
+      return new Date().toLocaleDateString();
+    };
+
+    return {
+      email,
+      phone,
+      getName,
+      count,
+      handleIncrement,
+      handleDecrement,
+      getDate,
+      clickMe,
+    };
+  },
 };
 </script>
