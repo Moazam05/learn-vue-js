@@ -20,47 +20,36 @@
   <button @click="handleDecrement" :disabled="count === 0">--</button>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 
+const email = "salmanmoazam08@gmail.com";
+const phone = "1234567890";
+const count = ref(0);
+
+const getName = (name) => {
+  return name;
+};
+
+const clickMe = () => {
+  alert("Hello World");
+};
+
+const handleIncrement = () => {
+  count.value++;
+};
+
+const handleDecrement = () => {
+  count.value--;
+};
+
+const getDate = () => {
+  return new Date().toLocaleDateString();
+};
+</script>
+
+<script>
 export default {
   name: "Home",
-
-  setup() {
-    const email = "salmanmoazam08@gmail.com";
-    const phone = "1234567890";
-    const count = ref(0);
-
-    const getName = (name) => {
-      return name;
-    };
-
-    const clickMe = () => {
-      alert("Hello World");
-    };
-
-    const handleIncrement = () => {
-      count.value++;
-    };
-
-    const handleDecrement = () => {
-      count.value--;
-    };
-
-    const getDate = () => {
-      return new Date().toLocaleDateString();
-    };
-
-    return {
-      email,
-      phone,
-      getName,
-      count,
-      handleIncrement,
-      handleDecrement,
-      getDate,
-      clickMe,
-    };
-  },
 };
 </script>
