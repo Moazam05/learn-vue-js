@@ -23,6 +23,11 @@
       </li>
     </ul>
   </div>
+
+  <div>
+    <!-- Use a function call directly -->
+    <button @click="childFunc('Salman')">Child Data</button>
+  </div>
 </template>
 
 <script setup>
@@ -32,6 +37,7 @@ import { reactive } from "vue";
 // Props
 defineProps({
   users: Array,
+  childFunc: Function,
 });
 
 // States
@@ -39,7 +45,9 @@ const currentUser = reactive({
   value: null,
 });
 
+// Methods
 const showName = (user) => {
+  alert(user.name);
   currentUser.value = user;
 };
 </script>

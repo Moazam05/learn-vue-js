@@ -28,11 +28,14 @@
       margin: '20px 0',
     }"
   >
-    <User :users="users" />
+    <User :users="users" :childFunc="childFunc" />
   </div>
+
+  <div>Data passing from child to parent:{{ childName?.name }}</div>
 </template>
 
 <script setup>
+import { reactive } from "vue";
 import Child from "./Child.vue";
 import User from "./User.vue";
 
@@ -55,6 +58,17 @@ const users = [
   { id: 3, name: "Ahmed" },
   { id: 4, name: "Kashif" },
 ];
+
+const childName = reactive({
+  name: "",
+});
+
+let dataFromChild = "";
+const childFunc = (name) => {
+  dataFromChild = name;
+  childName.name = name;
+  console.log("Data from child", name);
+};
 </script>
 
 <script>
