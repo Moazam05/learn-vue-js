@@ -22,10 +22,19 @@
       :currentDate="currentDate"
     />
   </div>
+
+  <div
+    :style="{
+      margin: '20px 0',
+    }"
+  >
+    <User :users="users" />
+  </div>
 </template>
 
 <script setup>
 import Child from "./Child.vue";
+import User from "./User.vue";
 
 const userDetails = {
   name: "Salman",
