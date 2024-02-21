@@ -11,21 +11,36 @@
 
   <div>
     <ul>
-      <li v-for="user in users" :key="user.id">
+      <li
+        v-for="user in users"
+        :key="user.id"
+        :style="{
+          color: currentUser?.value?.id === user.id ? 'red' : 'green',
+        }"
+      >
         {{ user.name }}
-        <button @click="showName(user?.name)">Show Name</button>
+        <button @click="showName(user)">Show Name</button>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
+// Imports
+import { reactive } from "vue";
+
+// Props
 defineProps({
   users: Array,
 });
 
-const showName = (name) => {
-  alert(name);
+// States
+const currentUser = reactive({
+  value: null,
+});
+
+const showName = (user) => {
+  currentUser.value = user;
 };
 </script>
 
